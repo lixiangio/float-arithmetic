@@ -1,9 +1,9 @@
 let arithmetic = require('./index')
 
-let value = arithmetic([0.1, '+', 0.2])
+let value = arithmetic(3, '+', 0.1, '/', 0.05, '/', 2)
+
 console.log(value)
 
-let xx = [0.1, '+', 0.2, '*',[0.1, '+', 0.2]]
-// console.log(value)
+console.log(value * 100 * 100)
 
-// console.log("gg" + 'kk')
+// console.log(1 * 3)
