@@ -1,0 +1,2 @@
+let arithmetic = require('./index')
+
