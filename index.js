@@ -23,7 +23,7 @@ function recursion(expression) {
 
    // 数值
    if (!isNaN(expression)) {
-      return expression * cardinalNumber
+      return `${expression}*${cardinalNumber}`
    }
 
    // 运算符
@@ -33,7 +33,7 @@ function recursion(expression) {
 
    // 数组
    else if (expression instanceof Array) {
-      let sub = ''
+      let sub = ``
       for (let item of expression) {
          sub = sub + recursion(item)
       }
@@ -47,11 +47,11 @@ module.exports = function (...expression) {
    // 仅处理数组表达式
    if (expression instanceof Array) {
 
-      let stringExpression = recursion(expression)
+      let stringExpression = `${recursion(expression)}/${cardinalNumber}`
       console.log(stringExpression)
 
       // 递归生成运算表达式
-      return eval(stringExpression) / cardinalNumber
+      return eval(stringExpression)
 
    } else {
       return null
