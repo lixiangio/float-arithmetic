@@ -8,13 +8,13 @@
 
 ## 参考示例
 
-      let arithmetic = require('float-arithmetic')
+      let Float = require('float-arithmetic')
 
-      let result = arithmetic(0.1, '+', 0.2, '+', 0.3)
+      let result = Float(0.1, '+', 0.2, '+', 0.3)
 
-      let result = arithmetic(0.1, '+', 0.2, '+', [0.3, '*', 0.4])
+      let result = Float(0.1, '+', 0.2, '+', [0.3, '*', 0.4])
 
-      let result = arithmetic(0.1, '-', 0.2, '+', [0.3, '/', 0.4])
+      let result = Float(0.1, '-', 0.2, '+', [0.3, '/', 0.4])
 
 
 ## 数组等同于括弧运算符，可提升运算优先级
