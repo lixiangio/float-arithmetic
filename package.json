@@ -1,5 +1,5 @@
 {
-  "name": "floating-point-arithmetic",
+  "name": "float-arithmetic",
   "version": "1.0.0",
   "description": "JS浮点运算",
   "main": "index.js",

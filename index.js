@@ -1,59 +1,64 @@
 "use strict"
 
-// 浮点数放大倍数
-const cardinalNumber = 100
-
-const operator = {
-   '+': {
-      compensate: '*'
+let operation = {
+   "+"(a, b, enlarge) {
+      return ((a * enlarge) + (b * enlarge)) / enlarge
    },
-   '-': {
-      compensate: '*'
+   "-"(a, b, enlarge) {
+      return ((a * enlarge) - (b * enlarge)) / enlarge
    },
-   '*': {
-      compensate: '/' + cardinalNumber
+   "*"(a, b, enlarge) {
+      return ((a * enlarge) * (b * enlarge)) / enlarge / enlarge
    },
-   '/': {
-      compensate: '*' + cardinalNumber
+   "/"(a, b, enlarge) {
+      return ((a * enlarge) / (b * enlarge))
    },
 }
 
-// 递归数组运算表达式转JS运算表达式
-function recursion(expression) {
+// 数据类型判断
+function type(expression) {
 
    // 数值
    if (!isNaN(expression)) {
-      return `${expression}*${cardinalNumber}`
-   }
-
-   // 运算符
-   else if (typeof expression === 'string') {
       return expression
    }
 
    // 数组
    else if (expression instanceof Array) {
-      let sub = ``
-      for (let item of expression) {
-         sub = sub + recursion(item)
+      return arithmetic(...expression)
+   }
+
+}
+
+function arithmetic(...expression) {
+
+   let result = type(expression[0])
+
+   for (let i = 0; i + 2 < expression.length; i += 2) {
+
+      let operator = expression[i + 1]
+      let initiative = type(expression[i + 2])
+
+      let resultLength = 0
+      let resultDecimal = String(result).split('.')[1]
+      if (resultDecimal) {
+         resultLength = resultDecimal.length
       }
-      return `(${sub})`
+
+      let initiativeLength = 0
+      let initiativeDecimal = String(initiative).split('.')[1]
+      if (initiativeDecimal) {
+         initiativeLength = initiativeDecimal.length
+      }
+
+      // 对比小数位数位数，取大于值
+      let enlarge = Math.pow(10, Math.max(resultLength, initiativeLength))
+
+      result = operation[operator](result, initiative, enlarge)
+
    }
 
+   return result
 }
 
-
-module.exports = function (...expression) {
-   // 仅处理数组表达式
-   if (expression instanceof Array) {
-
-      let stringExpression = `${recursion(expression)}/${cardinalNumber}`
-      console.log(stringExpression)
-
-      // 递归生成运算表达式
-      return eval(stringExpression)
-
-   } else {
-      return null
-   }
-}
+module.exports = arithmetic
