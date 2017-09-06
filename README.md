@@ -2,6 +2,10 @@
 
 类似常规数值运算表达式，可用于多个表达式的连续计算，避免代码碎片化
 
+## Installation
+
+      npm install float-arithmetic --save
+
 ## 参考示例
 
       let arithmetic = require('float-arithmetic')
