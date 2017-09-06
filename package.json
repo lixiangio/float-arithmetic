@@ -1,7 +1,7 @@
 {
   "name": "float-arithmetic",
   "version": "1.0.0",
-  "description": "JS浮点运算",
+  "description": "浮点数运算器",
   "main": "index.js",
   "scripts": {
     "test": "nodemon test.js"
