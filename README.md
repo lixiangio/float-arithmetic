@@ -4,7 +4,7 @@
 
       npm install float-arithmetic --save
 
-## 参考示例
+## 示例
 
       let Float = require('float-arithmetic')
 
