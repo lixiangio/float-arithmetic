@@ -24,6 +24,8 @@ function type(expression) {
    // 数组
    else if (expression instanceof Array) {
       return arithmetic(...expression)
+   } else {
+      throw new Error('运算表达式语法错误')
    }
 }
 
