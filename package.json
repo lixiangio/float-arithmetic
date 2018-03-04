@@ -1,6 +1,6 @@
 {
   "name": "float-arithmetic",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "浮点数运算器",
   "main": "index.js",
   "scripts": {
@@ -8,5 +8,18 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiangle/float-arithmetic.git"
+  },
+  "keywords": [
+    "浮点运算",
+    "js浮点数",
+    "js float"
+  ],
+  "bugs": {
+    "url": "https://github.com/xiangle/float-arithmetic/issues"
+  },
+  "homepage": "https://github.com/xiangle/float-arithmetic#readme"
 }
